@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <title>Doll Collection</title>
+</head>
+<body>
+  <div class="doll">
+    <div class="doll_main">
+      <h1 class="doll_title">Welcome to the Doll Collection</h1>
+      <ul>
+        <!-- <li>
+          <a href="./DollCollectionDetails.html"></a>
+          <img src="./img/1-1.jpg" alt="">
+          <div class="details_title">Doll Type 1</div>
+        </li>-->
+      </ul>
+    </div>
+  </div>
+  <script>
+    /*1.设置背景*/
+    const chosenColor = localStorage.getItem('chosenColor')
+    const chosenId = localStorage.getItem('chosenId')
+    // const params = new URLSearchParams(window.location.search);
+    // const chosenId = params.get('chosenId');
+    document.body.style.backgroundColor = chosenColor
+
+    /*2.设置图片*/
+    const arrs = [1,2,3,4,5]
+    var ul = document.querySelector('.doll_main ul')
+    arrs.forEach(function(num) {
+      var li = document.createElement('li')
+      var img = document.createElement('img')
+      var a = document.createElement('a')
+      var div = document.createElement('div')
+      a.href=`./DollCollectionDetails.html`
+      img.src = `./img/${chosenId}-${num}.jpg`
+      div.innerHTML = `Doll ${num}`
+      div.classList.add('details_title')
+      li.dataset.id = num
+      a.appendChild(img)
+      a.appendChild(div)
+      li.appendChild(a)
+      ul.appendChild(li)
+    });
+
+  </script>
+</body>
+</html>

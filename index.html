@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <title>Interactive Color Website</title>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar_main Width1440">
+      <div class="title"><a href="MainPage.html">WELCOME ! Pick a Color to explore the world of dolls</a></div>
+      <ul>
+        <li style="background-color:pink" data-id="1"></li>
+        <li style="background-color:yellow" data-id="2"></li>
+        <li style="background-color:skyblue" data-id="3"></li>
+        <li style="background-color:#94d753" data-id="4"></li>
+        <li style="background-color:#f26969" data-id="5"></li>
+        <li style="background-color:#a47224" data-id="6"></li>
+        <li style="background-color:#808080" data-id="7"></li>
+        <li style="background-color:#892f85" data-id="8"></li>
+        <li style="background-color:#fdfdf9" data-id="9"></li>
+        <li style="background-color:#000000" data-id="10"></li>
+      </ul>
+    </div>
+  </div>
+  <script>
+    const listItems = document.querySelectorAll('.navbar_main ul li');
+    listItems.forEach(function(event){
+      event.addEventListener('mouseenter',function(){
+         // 移除所有 li 元素的盒子阴影 bfxbfd
+         listItems.forEach(function(item) {
+            item.style.boxShadow = 'none';
+          });
+        document.body.style.backgroundColor = event.style.backgroundColor
+        event.style.boxShadow = "0px 5px 5px #eee"
+      })
+      event.addEventListener('click',function(){
+        localStorage.setItem('chosenColor',event.style.backgroundColor)
+        localStorage.setItem('chosenId',event.dataset.id)
+        location.href =`./ShowImg.html`
+      })
+    })
+  </script>
+</body>
+</html>

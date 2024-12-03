@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/index.css">
+  <title>ShowImg</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sour+Gummy:ital,wght@0,100..900;1,100..900&display=swap');
+    .doll_title {
+      background-color: white;
+      padding: 10px; /* Adds spacing around the text */
+      border-radius: 10px; /* Optional: rounded corners */
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow for better visibility */
+      text-align: center; /* Centers the text inside the box */
+      display: inline-block; /* Ensures the background wraps tightly around the text */
+    }
+    </style>
+</head>
+<body>
+  <div class="doll">
+    <div class="doll_main">
+      <h1 class="doll_title">Greats choice! click me to see me and my friends ~ </h1>
+  <div class="showMain">
+    <a class="showA"><img class="showMainImg animated bounceIn"></a>
+  </div>
+  <script>
+    /*1.设置背景*/
+    const chosenColor = localStorage.getItem('chosenColor')
+    document.body.style.backgroundColor = chosenColor
+    /*2.设置图片*/
+    const chosenId = localStorage.getItem('chosenId')
+    const randomNumber = Math.floor(5) + 1;
+    // document.querySelector('.showMainImg').src= `./img/${chosenId}-${randomNumber}.jpg`
+    const imgElement = document.querySelector('.showMainImg');
+    // 设置一个默认图片路径
+    imgElement.src =  `./img/${chosenId}-${randomNumber}.jpg`;
+    /*图片错误处理*/
+    imgElement.onerror = function() {
+      imgElement.src =  `./img/${chosenId}-1.jpg`;;
+    };
+    document.querySelector('.showA').href="./DollCollection.html"
+  </script>
+</body>
+</html>
